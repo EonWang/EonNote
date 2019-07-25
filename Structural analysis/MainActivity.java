@@ -8,11 +8,10 @@ import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.RadioGroup;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener{
+public class MainActivity extends AppCompatActivity{
 
-    RadioGroup radioGroup;
     private PaintView paintView;
 
     @Override
@@ -25,9 +24,6 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
         paintView.init(metrics);
-
-        radioGroup = findViewById(R.id.radiogroup);
-        radioGroup.setOnCheckedChangeListener(this);
     }
 
     //建立選單
@@ -41,6 +37,24 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     //建立選單選擇事件
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        int res_id = item.getItemId();
+        int id = item.getItemId();
+
+        if (res_id == R.id.action_dot) {
+            Toast.makeText(getApplicationContext(), "You select dot", Toast.LENGTH_LONG).show();
+            paintView.drawDot();
+        }
+        switch (id){
+            case R.id.action_element1:
+                Toast.makeText(MainActivity.this, item.getTitle().toString(), Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_element2:
+                Toast.makeText(MainActivity.this, item.getTitle().toString(), Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_element3:
+                Toast.makeText(MainActivity.this, item.getTitle().toString(), Toast.LENGTH_SHORT).show();
+                break;
+        }
         switch (item.getItemId()) {
             case R.id.Array:
                 Intent intent = new Intent(this, ArrayOutput.class);
@@ -53,16 +67,5 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
 
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onCheckedChanged(RadioGroup radioGroup,int i) {
-        if (radioGroup.getCheckedRadioButtonId() == R.id.radioButton1) {
-            paintView.drawDot();
-        } else if (radioGroup.getCheckedRadioButtonId() == R.id.radioButton2) {
-            paintView.BuildRegion();
-            paintView.setElement();
-        } else {
-        }
     }
 }
