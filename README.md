@@ -1,3 +1,2 @@
-# EonNote
-這裡是我的程式學習足跡
-讓我能記錄在學習路上的點子&啟發。
+# Android Structral analysis APP
+放置專案結果 & Code
