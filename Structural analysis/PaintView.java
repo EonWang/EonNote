@@ -269,21 +269,6 @@ public class PaintView extends View implements Serializable {
         return buildDot;
     }
 
-    /**
-     *
-     * 選取端點以建立桿件
-     * @param x
-     * @param y
-     *
-     */
-    private void SelectDot(float x,float y) {
-
-
-
-        //paint.setColor(Color.YELLOW);
-    }
-
-
     public Bundle points() {
         Bundle bundle = new Bundle();
         bundle.putSerializable("points", pointarray);
