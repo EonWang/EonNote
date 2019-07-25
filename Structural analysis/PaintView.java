@@ -246,13 +246,6 @@ public class PaintView extends View implements Serializable {
         Log.d("TAG",Dot.toString());
 
         pointarray.add(Dot);
-
-        //在觸摸點繪製圓點，並定義為region讓後續的行動能夠點擊
-        Path drawDot = new Path();
-        drawDot.addCircle(transpts[0],transpts[1],10, Path.Direction.CW);
-        canvas.drawPath(drawDot,paint);
-
-        Log.d("TAG", pointarray.toString());
     }
 
     public Region BuildRegion() {
